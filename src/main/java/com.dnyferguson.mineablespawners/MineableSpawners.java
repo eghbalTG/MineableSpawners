@@ -49,7 +49,9 @@ public final class MineableSpawners extends JavaPlugin {
 
         api = new API(this);
         int pluginId = 7354;
-        Metrics metrics = new Metrics(this, pluginId);
+        if (getConfig().getBoolean("metrics",false)) {
+            Metrics metrics = new Metrics(this, pluginId);
+        }
     }
 
     private boolean setupEconomy() {
